@@ -114,7 +114,12 @@ export async function readProgramaPdf(programaId) {
     [
       pdfPath(id),
       adjunto?.ruta,
-      adjunto?.ruta ? path.join(uploadsDir(), path.basename(adjunto.ruta)) : null,
+      adjunto?.ruta
+        ? path.join(
+            /* turbopackIgnore: true */ uploadsDir(),
+            path.basename(adjunto.ruta),
+          )
+        : null,
     ],
     adjunto?.nombre_original || `${id}.pdf`,
   );

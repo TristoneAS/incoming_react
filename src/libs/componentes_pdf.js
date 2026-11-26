@@ -117,7 +117,10 @@ export async function readRevisionPdf(revisionId, campo, query) {
       esperado,
       rows[0]?.ruta,
       rows[0]?.ruta
-        ? path.join(revisionesUploadsDir(), path.basename(rows[0].ruta))
+        ? path.join(
+            /* turbopackIgnore: true */ revisionesUploadsDir(),
+            path.basename(rows[0].ruta),
+          )
         : null,
     ],
     rows[0]?.nombre_original || `${revisionId}-${campo}.pdf`,

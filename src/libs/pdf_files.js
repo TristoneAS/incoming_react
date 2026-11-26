@@ -8,7 +8,7 @@ function unique(paths) {
 function resolveCandidate(filePath) {
   if (!filePath) return [];
   if (path.isAbsolute(filePath)) return [filePath];
-  return [path.join(process.cwd(), filePath)];
+  return [path.join(/* turbopackIgnore: true */ process.cwd(), filePath)];
 }
 
 /**
